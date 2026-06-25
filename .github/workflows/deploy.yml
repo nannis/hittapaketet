@@ -1,0 +1,15 @@
+name: Trigger cPanel Deploy
+
+on:
+  push:
+    branches:
+      - main  # Denna körs automatiskt så fort main-branchen uppdateras
+
+jobs:
+  cpanel-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Anropa cPanel API
+      run: |
+        curl -H "Authorization: cpanel ${{ secrets.CPANEL_USERNAME }}:${{ secrets.CPANEL_TOKEN }}" \
+        "https://polar55.se:2083/execute/VersionControl/deploy_host_repository?name=hittapaketet"
