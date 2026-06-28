@@ -1,0 +1,6 @@
+# Ignorera config med API-nyckel – lägg aldrig denna i git
+api/config.php
+
+# Systemfiler
+.DS_Store
+Thumbs.db
