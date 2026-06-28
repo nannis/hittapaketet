@@ -39,7 +39,7 @@ const btnAdd       = document.getElementById('btn-add');
 const addMsg       = document.getElementById('add-msg');
 const pkgList      = document.getElementById('pkg-list');
 const btnRefresh   = document.getElementById('btn-refresh');
-const refreshSpinner = document.getElementById('refresh-spinner');
+
 
 // ── Airmee helpers ───────────────────────────────────────
 function isAirmee(pkg) { return pkg.carrier === 'airmee'; }
@@ -117,10 +117,8 @@ async function addPackage() {
 
 // ── Refresh all ─────────────────────────────────────────
 btnRefresh.addEventListener('click', async () => {
-  refreshSpinner.hidden = false;
   btnRefresh.disabled = true;
   await refreshAll();
-  refreshSpinner.hidden = true;
   btnRefresh.disabled = false;
 });
 
